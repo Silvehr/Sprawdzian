@@ -106,25 +106,26 @@ void QuickSort(int arr[], int start, int end)
     if(start >= end)
         return;
 
-    int pivot = arr[(start+end)>>1];
-    int leftIndex = start-1;
-    int rightIndex = end+1;
+    int pivot = arr[start];
+    int leftIndex = start;
+    int rightIndex = end;
 
     while(true)
     {
-        while(pivot > arr[++leftIndex]);
+        while(pivot > arr[leftIndex])
+          leftIndex++;
 
-        while(pivot < arr[--rightIndex]);
+        while(pivot < arr[--rightIndex])
+          rightIndex++;
 
-        if(leftIndex <= rightIndex)
-            swap(arr[leftIndex], arr[rightIndex]);
-        else
+        if(leftIndex >= rightIndex)
             break;
+
+        swap(arr[leftIndex], arr[rightIndex]);
+        leftIndex++;
+        rightIndex++;
     }
 
-    if(rightIndex >= start)
-        QuickSort(arr, start, rightIndex);
-
-    if(leftIndex <= end)
-        QuickSort(arr,leftIndex, end);
+    QuickSort(arr, start, rightIndex);
+    QuickSort(arr, rightIndex+1, end);
 }
