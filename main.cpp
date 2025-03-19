@@ -21,8 +21,7 @@ void SortowaniePrzezWstawianie(int arr[], int length)
     }
 }
 
-template <typename  T>
-void BubbleSort(T arr[], int length)
+void BubbleSort(int arr[], int length)
 {
     bool swapped;
     for(int index = 0; index < length-1; index++)
@@ -42,8 +41,7 @@ void BubbleSort(T arr[], int length)
     }
 }
 
-template<typename T> 
-void MergeSort(T arr[], int start, int end)
+void MergeSort(int arr[], int start, int end)
 {
     if(start >= end)
         return;
@@ -54,8 +52,7 @@ void MergeSort(T arr[], int start, int end)
     Merge(arr, start, mid, end);
 }
 
-template<typename T>
-void Merge(T arr[], int start, int mid, int end)
+void Merge(int arr[], int start, int mid, int end)
 {
     int leftSize = mid - start + 1;
     int rightSize = end - mid;
@@ -104,12 +101,12 @@ void Merge(T arr[], int start, int mid, int end)
     delete[] right;
 }
 
-template<typename T> void QuickSort(T arr[], int start, int end)
+void QuickSort(int arr[], int start, int end)
 {
     if(start >= end)
         return;
 
-    T pivot = arr[(start+end)>>1];
+    int pivot = arr[(start+end)>>1];
     int leftIndex = start-1;
     int rightIndex = end+1;
 
