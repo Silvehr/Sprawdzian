@@ -1,23 +1,23 @@
 double find0(double a, double b, double delta, double epsilon)
 {
-    double rangeLen;
+    double rangeLen = b-a;
     double x0;
 
     while(true)
     {
-        rangeLen = rangeLen / 2;
+        rangeLen = (b-a) / 2;
         x0 = a + rangeLen;
 
         // w *function* wstaw swoją funkcje
-        if(abs(rangeLen) < delta || abs(function(x0)) < epsilon)
+        if(abs(rangeLen) < delta || abs(f(x0)) < epsilon)
             return x0;
-        
-        if(function(x0) * function(a) < 0)
+
+        if((f(x0) * f(a)) < 0)
             b = x0;
         else
             a = x0;
     }
-}  
+}
 
 double CalkaProstokat(double a, double b, int p)
 {
