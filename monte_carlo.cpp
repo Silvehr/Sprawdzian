@@ -1,6 +1,4 @@
-#include<cstdlib>
-#include<cmath>
-#include<iostream>
+#include <cstdlib>
 
 double calc_pi(long precision)
 {
@@ -15,9 +13,4 @@ double calc_pi(long precision)
     }
 
     return 4 * (double)liczba_trafien / precision;
-}
-
-int main()
-{
-    std::cout<<calc_pi(1000000000);
 }
